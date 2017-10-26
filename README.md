@@ -14,3 +14,5 @@ Suggested improvements:
 * added squaresClicked array to state, values set via handleClick(i)
 * added squareGrid array of values of move locations
 * values in squaresClicked correspond to index of item in squareGrid to determine move location
+
+2.
