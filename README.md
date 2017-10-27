@@ -14,3 +14,6 @@ Suggested improvements (from React tutorial):
 * added clicked array to state - values set via handleClick(i)
 * added locations array of values of move locations
 * values in clicked array correspond to index of item in locations to determine move location
+
+2. Bold the currently selected item in the move list.
+* if move === this.state.stepNumber, set class of <a> to 'active'.

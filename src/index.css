@@ -49,6 +49,7 @@ ol, ul {
   margin-left: 20px;
 }
 
-.activeLink {
+.active {
+  font-size: 16px;
   font-weight: bolder;
 }
