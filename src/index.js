@@ -48,14 +48,13 @@ class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
-      squaresClicked: [],
-      className: 'isActive',
+      clicked: [],
     };
   }
 
   handleClick(i) {
     var history = this.state.history.slice(0, this.state.stepNumber + 1);
-    var squaresClicked = this.state.squaresClicked.slice(0, this.state.stepNumber);
+    var clicked = this.state.clicked.slice(0, this.state.stepNumber);
     var current = history[history.length - 1];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
@@ -68,7 +67,7 @@ class Game extends React.Component {
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
-      squaresClicked: squaresClicked.concat(i),
+      clicked: clicked.concat(i),
     });
   }
 
@@ -86,7 +85,7 @@ class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
-      squaresClicked: [],
+      clicked: [],
     });
   }
 
@@ -103,14 +102,13 @@ class Game extends React.Component {
     if (!winner && (history.length === 10)) {
       status = 'Tie';
     }
-    const squareGrid = ['(1, 1)', '(1, 2)', '(1, 3)', '(2, 1)', '(2, 2)', '(2, 3)', '(3, 1)', '(3, 2)', '(3, 3)'];
-    const squaresClicked = this.state.squaresClicked;
-    console.log(squaresClicked);
+    const locations = ['(1, 1)', '(1, 2)', '(1, 3)', '(2, 1)', '(2, 2)', '(2, 3)', '(3, 1)', '(3, 2)', '(3, 3)'];
+    const clicked = this.state.clicked;
     const moves = history.map((step, move) => {
-      const desc = move ? 'Move #' + move + ' ' + squareGrid[squaresClicked[move - 1]] : 'Game start';
+      const desc = move ? 'Move #' + move + ' ' + locations[clicked[move - 1]] : 'Game start';
       return (
         <li key={move}>
-          <a className={this.state.className} href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
+          <a className={this.state.active ? "activeLink" : ""} href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
     });
@@ -149,13 +147,11 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
   }
-
   return null;
 }

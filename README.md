@@ -8,11 +8,9 @@ My own improvements:
 
 2. Added 'Tie' status if no one wins
 
-Suggested improvements:  
+Suggested improvements (from React tutorial):  
 
 1. Display the move locations in the format “(1, 3)” in the move list.  
-* added squaresClicked array to state, values set via handleClick(i)
-* added squareGrid array of values of move locations
-* values in squaresClicked correspond to index of item in squareGrid to determine move location
-
-2.
+* added clicked array to state - values set via handleClick(i)
+* added locations array of values of move locations
+* values in clicked array correspond to index of item in locations to determine move location
