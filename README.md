@@ -17,3 +17,9 @@ Suggested improvements (from React tutorial):
 
 2. Bold the currently selected item in the move list.
 * if move === this.state.stepNumber, set class of <a> to 'active'.
+
+3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
+* created 2 arrays - 1 for board rows and 1 for rendered squares
+* used 2 for loops - first one to iterate three times to make the rows, and a for loop inside the first one to render squares
+* created index variable for renderSquare function to take in as an argument to render each squares
+* emptied rendered squares array after each row was made
