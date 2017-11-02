@@ -116,7 +116,6 @@ export default class Game extends React.Component {
       );
     });
     this.state.sortMovesAscending === false ? moves.sort((a, b) => { return b.key - a.key; }) : moves.sort((a, b) => { return a.key - b.key; });
-    // aaa
     return (
       <div className="game">
         <div>
@@ -125,7 +124,7 @@ export default class Game extends React.Component {
           <a href="#" title="Reset Game" onClick={() => this.resetGame()}>Reset Game</a>
         </div>
         <div className="game-info">
-          <div>{status}&nbsp;<a id="sort-icon" href="#" title="Toggle Ascending/Descending" onClick={() => this.sortMoves()}><img src={require('../img/sort-icon.png')} alt="sort-icon"/></a></div>
+          <div>{status}&nbsp;<a id="sort-icon" href="#" title="Toggle Ascending/Descending" onClick={() => this.sortMoves()}><img src={require('../../public/img/sort-icon.png')} alt="sort-icon"/></a></div>
           <ol>{moves}</ol>
         </div>
       </div>
