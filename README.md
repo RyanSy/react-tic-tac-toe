@@ -24,7 +24,13 @@ Suggested improvements (from React tutorial):
 * created index variable for ```renderSquare``` function to take in as an argument to render each squares
 * emptied rendered squares array after each row was made
 
-3. Add a toggle button that lets you sort the moves in either ascending or descending order.
+4. Add a toggle button that lets you sort the moves in either ascending or descending order.
 * added ```sortMovesAscending: true,``` to state
 * added  ```sortMoves``` function to set state after toggle button is pressed
 * sort through ```moves``` using if statement
+
+5. When someone wins, highlight the three squares that caused the win.
+* added ```highlightWinners``` function to return array of winning square indexes
+* stored array as a ```Board``` prop
+* added square indexes as IDs on each button
+* if ID = index of winning square, set class to highlighted

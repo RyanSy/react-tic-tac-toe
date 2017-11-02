@@ -12,20 +12,21 @@ export default class Game extends React.Component {
       xIsNext: true,
       clicked: [],
       sortMovesAscending: true,
+      lines: [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],  
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ],
     };
   }
 
   calculateWinner(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
+    const lines = this.state.lines;
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -55,20 +56,11 @@ export default class Game extends React.Component {
   }
 
   highlightWinners(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
+    const lines = this.state.lines;
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return([a, b, c]);
+        return [a, b, c];
       }
     }
   }
@@ -102,6 +94,7 @@ export default class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
     let status;
+    const highlighted = this.highlightWinners(current.squares);
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
@@ -115,23 +108,19 @@ export default class Game extends React.Component {
     const moves = history.map((step, move) => {
       const desc = move ? 'Move #' + move + ' ' + locations[clicked[move - 1]] : 'Game Start';
       const title = "Jump to " + desc;
-      const active = (move === this.state.stepNumber) ? 'active' : '';
+      const active = move === this.state.stepNumber ? 'active' : '';
       return (
         <li key={move}>
           <a className={active} href="#" title={title} onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
     });
-    (this.state.sortMovesAscending === false) ? moves.sort((a, b) => { return b.key - a.key; }) : moves.sort((a, b) => { return a.key - b.key; });
-
-    const highlighted = this.highlightWinners(current.squares);
-    console.log(highlighted);
-    //for each square in highlighted array, add class to html element
-
+    this.state.sortMovesAscending === false ? moves.sort((a, b) => { return b.key - a.key; }) : moves.sort((a, b) => { return a.key - b.key; });
+    // aaa
     return (
       <div className="game">
         <div>
-          <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+          <Board squares={current.squares} highlighted={highlighted} onClick={(i) => this.handleClick(i)} />
           <br></br>
           <a href="#" title="Reset Game" onClick={() => this.resetGame()}>Reset Game</a>
         </div>

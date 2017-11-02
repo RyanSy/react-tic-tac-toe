@@ -58,3 +58,7 @@ ol, ul {
   padding-left: 10px;
   position: absolute;;
 }
+
+.highlighted {
+  background-color: yellow;
+}
