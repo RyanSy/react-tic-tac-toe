@@ -69,3 +69,7 @@ button:hover {
 .status-row {
    width: 135px;
 }
+
+.highlighted {
+  background-color: yellow;
+}

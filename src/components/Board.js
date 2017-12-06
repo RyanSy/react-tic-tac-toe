@@ -11,6 +11,7 @@ export default class Board extends React.Component {
       images[i] = <img src={require("../../public/img/angular.png")} alt="Angular"/>;
     }
     return <Square id={i} key={i} value={squares[i]} image={images[i]} highlighted={this.props.highlighted} onClick={() => this.props.onClick(i)} />;
+    return <Square id={i} key={i} value={squares[i]} highlighted={this.props.highlighted} onClick={() => this.props.onClick(i)} />;
   }
 
   render() {
