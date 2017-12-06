@@ -21,15 +21,14 @@ ol, ul {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 40px;
+  height: 50px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 0;
+  padding-top: 8px;
   text-align: center;
-  width: 40px;
+  width: 52px;
 }
 
 .square:focus {
@@ -56,5 +55,17 @@ ol, ul {
 
 #sort-icon {
   padding-left: 10px;
-  position: absolute;;
+  float: right;
+}
+
+.highlighted {
+  background-color: yellow;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.status-row {
+   width: 135px;
 }

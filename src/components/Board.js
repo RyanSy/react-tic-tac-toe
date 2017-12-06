@@ -4,7 +4,13 @@ import Square from './Square.js'
 export default class Board extends React.Component {
   renderSquare(i) {
     const squares = this.props.squares;
-    return <Square id={i} className="highlighted" key={i} value={squares[i]} onClick={() => this.props.onClick(i)} />;
+    const images = [];
+    if (squares[i] === 'React') {
+      images[i] = <img src={require("../../public/img/react.png")} alt="React"/>;
+    } else if (squares[i] === 'Angular') {
+      images[i] = <img src={require("../../public/img/angular.png")} alt="Angular"/>;
+    }
+    return <Square id={i} key={i} value={squares[i]} image={images[i]} highlighted={this.props.highlighted} onClick={() => this.props.onClick(i)} />;
   }
 
   render() {
