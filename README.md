@@ -2,7 +2,7 @@ Tic Tac Toe game from the React tutorial
 
 https://facebook.github.io/react/tutorial/tutorial.html
 
-Suggested improvements (from React tutorial):  
+Suggested improvements done (from React tutorial):  
 
 1. Display the move locations in the format “(1, 3)” in the move list.  
 * added ```clicked``` array to state - values set via ```handleClick(i)```
@@ -29,10 +29,10 @@ Suggested improvements (from React tutorial):
 * added square indexes as IDs on each button
 * if ID = index of winning square, set class to highlighted
 
-My own improvements:
+My own improvements added:
 
 1. Added ```resetGame``` function to reset game
 
 2. Added 'Tie' status if no one wins
 
-3. Changed 'X' vs. 'O' to 'React' vs. 'Angular', added images to squares
+3. Changed 'X' vs. 'O' to 'React' vs. 'Angular' images

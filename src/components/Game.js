@@ -117,15 +117,22 @@ export default class Game extends React.Component {
     });
     this.state.sortMovesAscending === false ? moves.sort((a, b) => { return b.key - a.key; }) : moves.sort((a, b) => { return a.key - b.key; });
     return (
-      <div className="game">
-        <div>
-          <Board squares={current.squares} highlighted={highlighted} onClick={(i) => this.handleClick(i)} />
-          <br></br>
-          <a href="#" title="Reset Game" onClick={() => this.resetGame()}>Reset Game</a>
+      <div>
+        <div id="main-image">
+          <img src="img/react-vs-angular.jpg" alt="React vs. Angular"></img>
         </div>
-        <div className="game-info">
-          <div className="status-row">{status}<a id="sort-icon" href="#" title="Toggle Ascending/Descending" onClick={() => this.sortMoves()}><img src={require('../../public/img/sort-icon.png')} alt="sort-icon"/></a></div>
-          <ul>{moves}</ul>
+        <p>Choose a square to begin playing!</p>
+        <br></br>
+        <div className="game">
+          <div>
+            <Board squares={current.squares} highlighted={highlighted} onClick={(i) => this.handleClick(i)} />
+            <br></br>
+            <a href="#" title="Reset Game" onClick={() => this.resetGame()}>Reset Game</a>
+          </div>
+          <div className="game-info">
+            <div className="status-row">{status}<a id="sort-icon" href="#" title="Toggle Ascending/Descending" onClick={() => this.sortMoves()}><img src={require('../../public/img/sort-icon.png')} alt="sort-icon"/></a></div>
+            <ul>{moves}</ul>
+          </div>
         </div>
       </div>
     );
